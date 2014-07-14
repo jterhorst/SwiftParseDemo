@@ -16,6 +16,8 @@
 		589C2D0A197436820001672F /* SwiftParseExampleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589C2D09197436820001672F /* SwiftParseExampleTests.swift */; };
 		589C2D141974372A0001672F /* payload.json in Resources */ = {isa = PBXBuildFile; fileRef = 589C2D131974372A0001672F /* payload.json */; };
 		589C2D151974372A0001672F /* payload.json in Resources */ = {isa = PBXBuildFile; fileRef = 589C2D131974372A0001672F /* payload.json */; };
+		58AEC17D19743BE1009915FC /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AEC17C19743BE1009915FC /* DataParser.swift */; };
+		58AEC17E19743BE1009915FC /* DataParser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 58AEC17C19743BE1009915FC /* DataParser.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,6 +43,7 @@
 		589C2D08197436820001672F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		589C2D09197436820001672F /* SwiftParseExampleTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftParseExampleTests.swift; sourceTree = "<group>"; };
 		589C2D131974372A0001672F /* payload.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = payload.json; sourceTree = "<group>"; };
+		58AEC17C19743BE1009915FC /* DataParser.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DataParser.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,6 +85,7 @@
 		589C2CEE197436810001672F /* SwiftParseExample */ = {
 			isa = PBXGroup;
 			children = (
+				58AEC17C19743BE1009915FC /* DataParser.swift */,
 				589C2CF1197436810001672F /* AppDelegate.swift */,
 				589C2CF6197436820001672F /* MasterViewController.swift */,
 				589C2CF8197436820001672F /* DetailViewController.swift */,
@@ -221,6 +225,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				589C2CF5197436810001672F /* SwiftParseExample.xcdatamodeld in Sources */,
+				58AEC17D19743BE1009915FC /* DataParser.swift in Sources */,
 				589C2CF2197436810001672F /* AppDelegate.swift in Sources */,
 				589C2CF7197436820001672F /* MasterViewController.swift in Sources */,
 				589C2CF9197436820001672F /* DetailViewController.swift in Sources */,
@@ -231,6 +236,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				58AEC17E19743BE1009915FC /* DataParser.swift in Sources */,
 				589C2D0A197436820001672F /* SwiftParseExampleTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -413,6 +419,7 @@
 				589C2D0F197436820001672F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		589C2D10197436820001672F /* Build configuration list for PBXNativeTarget "SwiftParseExampleTests" */ = {
 			isa = XCConfigurationList;
@@ -421,6 +428,7 @@
 				589C2D12197436820001672F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

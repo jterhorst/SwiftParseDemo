@@ -21,6 +21,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.endIndex-1] as UINavigationController
         splitViewController.delegate = navigationController.topViewController as DetailViewController
 
+		let dataParser = DataParser()
+		dataParser.managedObjectContext = self.managedObjectContext
+		dataParser.parseFromFile()
+
         let masterNavigationController = splitViewController.viewControllers[0] as UINavigationController
         let controller = masterNavigationController.topViewController as MasterViewController
         controller.managedObjectContext = self.managedObjectContext
@@ -68,17 +72,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // Returns the managed object context for the application.
     // If the context doesn't already exist, it is created and bound to the persistent store coordinator for the application.
-    var managedObjectContext: NSManagedObjectContext {
-        if !_managedObjectContext {
+	var managedObjectContext: NSManagedObjectContext {
+		if !_managedObjectContext {
+			_managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)
+			_managedObjectContext!.parentContext = self.diskMOC
+		}
+		return _managedObjectContext!
+	}
+	var _managedObjectContext: NSManagedObjectContext? = nil
+
+	var diskMOC: NSManagedObjectContext {
+        if !_diskMOC {
             let coordinator = self.persistentStoreCoordinator
             if coordinator != nil {
-                _managedObjectContext = NSManagedObjectContext()
-                _managedObjectContext!.persistentStoreCoordinator = coordinator
+				_diskMOC = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
+                _diskMOC!.persistentStoreCoordinator = coordinator
             }
         }
-        return _managedObjectContext!
+        return _diskMOC!
     }
-    var _managedObjectContext: NSManagedObjectContext? = nil
+    var _diskMOC: NSManagedObjectContext? = nil
 
     // Returns the managed object model for the application.
     // If the model doesn't already exist, it is created from the application's model.

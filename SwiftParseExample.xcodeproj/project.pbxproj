@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		580E1DC319808D3A00C000E1 /* PressRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580E1DC219808D3A00C000E1 /* PressRelease.swift */; };
+		580E1DC419808D3A00C000E1 /* PressRelease.swift in Sources */ = {isa = PBXBuildFile; fileRef = 580E1DC219808D3A00C000E1 /* PressRelease.swift */; };
 		589C2CF2197436810001672F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589C2CF1197436810001672F /* AppDelegate.swift */; };
 		589C2CF5197436810001672F /* SwiftParseExample.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 589C2CF3197436810001672F /* SwiftParseExample.xcdatamodeld */; };
 		589C2CF7197436820001672F /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 589C2CF6197436820001672F /* MasterViewController.swift */; };
@@ -31,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		580E1DC219808D3A00C000E1 /* PressRelease.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressRelease.swift; sourceTree = "<group>"; };
 		589C2CEC197436810001672F /* SwiftParseExample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SwiftParseExample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		589C2CF0197436810001672F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		589C2CF1197436810001672F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -92,6 +95,7 @@
 				589C2CFA197436820001672F /* Main.storyboard */,
 				589C2CFD197436820001672F /* Images.xcassets */,
 				589C2CF3197436810001672F /* SwiftParseExample.xcdatamodeld */,
+				580E1DC219808D3A00C000E1 /* PressRelease.swift */,
 				589C2CEF197436810001672F /* Supporting Files */,
 			);
 			path = SwiftParseExample;
@@ -227,6 +231,7 @@
 				589C2CF5197436810001672F /* SwiftParseExample.xcdatamodeld in Sources */,
 				58AEC17D19743BE1009915FC /* DataParser.swift in Sources */,
 				589C2CF2197436810001672F /* AppDelegate.swift in Sources */,
+				580E1DC319808D3A00C000E1 /* PressRelease.swift in Sources */,
 				589C2CF7197436820001672F /* MasterViewController.swift in Sources */,
 				589C2CF9197436820001672F /* DetailViewController.swift in Sources */,
 			);
@@ -238,6 +243,7 @@
 			files = (
 				58AEC17E19743BE1009915FC /* DataParser.swift in Sources */,
 				589C2D0A197436820001672F /* SwiftParseExampleTests.swift in Sources */,
+				580E1DC419808D3A00C000E1 /* PressRelease.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,9 +353,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SwiftParseExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -358,6 +366,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = SwiftParseExample/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -368,6 +377,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SwiftParseExample.app/SwiftParseExample";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -380,6 +390,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftParseExample/SwiftParseExampleTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Debug;
@@ -388,6 +400,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/SwiftParseExample.app/SwiftParseExample";
+				CLANG_ENABLE_MODULES = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -396,6 +409,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				METAL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SwiftParseExample/SwiftParseExampleTests-Bridging-Header.h";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 			};
 			name = Release;

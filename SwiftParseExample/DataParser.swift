@@ -33,7 +33,7 @@ class DataParser : NSObject {
 			var jsonPayload = NSJSONSerialization.JSONObjectWithStream(jsonInputStream, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSArray
 			// I don't do any error-catching in this example, but you should in the real world
 
-			for releaseDict : NSDictionary! in jsonPayload {
+			for releaseDict in jsonPayload {
 				var releaseObject = NSEntityDescription.insertNewObjectForEntityForName("PressRelease", inManagedObjectContext: self.parsingContext) as NSManagedObject
 
 				releaseObject.setValue(releaseDict["about"], forKey: "about")

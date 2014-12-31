@@ -10,29 +10,29 @@
 	<string>SwiftParseExample</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>AEBA2DA8-3786-43DD-9F30-F801F5F375FB</key>
-		<string>ssh://github.com/jterhorst/SwiftParseDemo.git</string>
+		<key>5DD82814F7C3066FFA3BD35C0184CEA2657EACFE</key>
+		<string>github.com:jterhorst/SwiftParseDemo.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>SwiftParseExample.xcodeproj/project.xcworkspace</string>
+	<string>SwiftParseExample.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>AEBA2DA8-3786-43DD-9F30-F801F5F375FB</key>
+		<key>5DD82814F7C3066FFA3BD35C0184CEA2657EACFE</key>
 		<string>../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/jterhorst/SwiftParseDemo.git</string>
+	<string>github.com:jterhorst/SwiftParseDemo.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>AEBA2DA8-3786-43DD-9F30-F801F5F375FB</string>
+	<string>5DD82814F7C3066FFA3BD35C0184CEA2657EACFE</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>AEBA2DA8-3786-43DD-9F30-F801F5F375FB</string>
+			<string>5DD82814F7C3066FFA3BD35C0184CEA2657EACFE</string>
 			<key>IDESourceControlWCCName</key>
 			<string>SwiftParseDemo</string>
 		</dict>

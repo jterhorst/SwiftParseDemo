@@ -14,7 +14,7 @@ class DataParser : NSObject {
     var managedObjectContext: NSManagedObjectContext? = nil
     
     var parsingContext :NSManagedObjectContext {
-        if !_parsingContext {
+        if _parsingContext == nil {
 			_parsingContext = NSManagedObjectContext(concurrencyType: .PrivateQueueConcurrencyType)
             _parsingContext!.parentContext = self.managedObjectContext;
         }
@@ -27,10 +27,10 @@ class DataParser : NSObject {
 		self.parsingContext.performBlock {
 
 			var payloadPath = NSBundle.mainBundle().pathForResource("payload", ofType: "json")
-			var jsonInputStream = NSInputStream(fileAtPath: payloadPath)
-			jsonInputStream.open()
+			var jsonInputStream = NSInputStream(fileAtPath: payloadPath!)
+			jsonInputStream?.open()
 
-			var jsonPayload = NSJSONSerialization.JSONObjectWithStream(jsonInputStream, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSArray
+			var jsonPayload = NSJSONSerialization.JSONObjectWithStream(jsonInputStream!, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSArray
 			// I don't do any error-catching in this example, but you should in the real world
 
 			for releaseDict in jsonPayload {

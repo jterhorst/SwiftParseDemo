@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: NSDictionary?) -> Bool {
         // Override point for customization after application launch.
-        let splitViewController = self.window!.rootViewController as UISplitViewController
+        let splitViewController = self.window!.rootViewController as! UISplitViewController
         let navigationController = splitViewController.viewControllers[splitViewController.viewControllers.endIndex-1] as UINavigationController
         splitViewController.delegate = navigationController.topViewController as DetailViewController
 
@@ -58,12 +58,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func saveContext () {
         var error: NSError? = nil
         let managedObjectContext = self.managedObjectContext
-		if managedObjectContext.hasChanges && !managedObjectContext.save(&error) {
-			// Replace this implementation with code to handle the error appropriately.
-			// abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-			//println("Unresolved error \(error), \(error.userInfo)")
-			abort()
-		}
+		if managedObjectContext.hasChanges {
+            do {
+                try managedObjectContext.save()
+            } catch let error1 as NSError {
+                error = error1
+			    // Replace this implementation with code to handle the error appropriately.
+			    // abort() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+			    //println("Unresolved error \(error), \(error.userInfo)")
+			    abort()
+		    }
+        }
     }
 
     // #pragma mark - Core Data stack
@@ -109,7 +114,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let storeURL = self.applicationDocumentsDirectory.URLByAppendingPathComponent("SwiftParseExample.sqlite")
             var error: NSError? = nil
             _persistentStoreCoordinator = NSPersistentStoreCoordinator(managedObjectModel: self.managedObjectModel)
-            if _persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil, error: &error) == nil {
+            do {
+                try _persistentStoreCoordinator!.addPersistentStoreWithType(NSSQLiteStoreType, configuration: nil, URL: storeURL, options: nil)
+            } catch let error1 as NSError {
+                error = error1
                 /*
                 Replace this implementation with code to handle the error appropriately.
 

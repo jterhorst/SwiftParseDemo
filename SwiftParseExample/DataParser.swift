@@ -26,15 +26,20 @@ class DataParser : NSObject {
 
 		self.parsingContext.performBlock {
 
-			var payloadPath = NSBundle.mainBundle().pathForResource("payload", ofType: "json")
-			var jsonInputStream = NSInputStream(fileAtPath: payloadPath!)
+			let payloadPath = NSBundle.mainBundle().pathForResource("payload", ofType: "json")
+			let jsonInputStream = NSInputStream(fileAtPath: payloadPath!)
 			jsonInputStream?.open()
 
-			var jsonPayload = NSJSONSerialization.JSONObjectWithStream(jsonInputStream!, options: NSJSONReadingOptions.MutableContainers, error: nil) as NSArray
+			var jsonPayload = NSArray()
+            do {
+                try jsonPayload = NSJSONSerialization.JSONObjectWithStream(jsonInputStream!, options: NSJSONReadingOptions.MutableContainers) as! NSArray
+            } catch let jsonError as NSError {
+                print("parse error: \(jsonError)")
+            }
 			// I don't do any error-catching in this example, but you should in the real world
 
 			for releaseDict in jsonPayload {
-				var releaseObject = NSEntityDescription.insertNewObjectForEntityForName("PressRelease", inManagedObjectContext: self.parsingContext) as NSManagedObject
+				let releaseObject = NSEntityDescription.insertNewObjectForEntityForName("PressRelease", inManagedObjectContext: self.parsingContext) as NSManagedObject
 
 				releaseObject.setValue(releaseDict["about"], forKey: "about")
 				releaseObject.setValue(releaseDict["email"], forKey: "email")
@@ -43,9 +48,14 @@ class DataParser : NSObject {
 				releaseObject.setValue(releaseDict["phone"], forKey: "phone")
 				releaseObject.setValue(releaseDict["id"], forKey: "remoteId")
 
-				var error: NSError? = nil
 				let parsingContext = self.parsingContext
-				!parsingContext.save(&error)
+                
+                do {
+                    try parsingContext.save()
+                } catch let parseError as NSError {
+                    print("parse error: \(parseError)")
+                }
+				
 			}
 		}
 
